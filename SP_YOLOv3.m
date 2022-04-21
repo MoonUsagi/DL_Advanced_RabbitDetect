@@ -90,7 +90,8 @@ yolov3Detector = yolov3ObjectDetector(name,classNames,anchorBoxes);
 
 %% Preprocess Training Data
 % 流程前處理 資料Size校正
-preprocessedTrainingData = transform(augmentedTrainingData,@(data)preprocessData(data,inputSize));data = read(trainingData);
+preprocessedTrainingData = transform(augmentedTrainingData,@(data)preprocessData(data,inputSize));
+data = read(trainingData);
 data = read(preprocessedTrainingData);
 
 I = data{1};
