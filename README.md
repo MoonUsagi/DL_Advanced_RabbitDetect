@@ -14,3 +14,8 @@ MATLAB Object Detection with rabbit dataset
 標記影像(可使用image labeler標記　or 載入Rabbit_myselft_608標記資料(需更改路徑)  
 模型(可以自行透過演算法訓練，也使用Pre-trained進行測試)   
  
+-------------------------------------------
+4/21 新增演算法
+Object Detection - YOLOv4
+Image Segmentation - DeepLabv3
+標記檔案 - gTruth_Seg.mat
