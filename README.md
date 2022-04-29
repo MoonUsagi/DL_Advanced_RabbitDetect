@@ -1,8 +1,8 @@
 # RabbitDetect
-Bulit on 2022/02  by Fred Liu
+Bulit on 2022/02  by Fred Liu  
 [Youtube Link](https://www.youtube.com/channel/UCnUuSyqkkXaFy57qL7aURAA)
 
-![image](https://github.com/MoonUsagi/)
+![image](https://github.com/MoonUsagi/RabbitDetect/blob/main/rabbitLog_label.jpg)
 
 
 
