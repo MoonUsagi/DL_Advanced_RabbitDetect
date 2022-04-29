@@ -16,8 +16,8 @@ Bulit on 2022/02  by Fred Liu
 1.資料請下載(data download):Rabbit_myself_416 or Rabbit_myself_608  
 2.模型(model):Modeldownload  
 3.演算法(algorithm):FasterRCNN,SSD,YLOLv2.YOLOv3  
-4.標記檔案(label data):Rabbit_myself_608  
-5.src_input: 各種labele的匯入api (any label input api)  
+4.標記檔案(label data):Rabbit_myself_608.mat,Change_gTruthPath
+6.src_input: 各種labele的匯入api (any label input api)  
   
   
   
@@ -43,7 +43,7 @@ It can use "Change_gTruthPath.m" to change path.)
 ---------------------------------------
 1.資料請下載(data download):Rabbit_myself_416 or Rabbit_myself_608  
 2.模型(model):future  
-3.演算法(algorithm):FasterRCNN,SSD,YLOLv2.YOLOv3  
+3.演算法(algorithm):SP_DeepLabv3
   
   
   
