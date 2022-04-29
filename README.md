@@ -1,5 +1,10 @@
 # RabbitDetect
 Bulit on 2022/02  by Fred Liu
+[Youtube Link](https://www.youtube.com/channel/UCnUuSyqkkXaFy57qL7aURAA)
+
+![image](https://github.com/MoonUsagi/)
+
+
 
 基於MATLAB 物件偵測於rabbit dataset   
 (MATLAB Object Detection with rabbit dataset)
@@ -45,6 +50,6 @@ It can use "Change_gTruthPath.m" to change path.)
   
 - - -
 未來更新(future update)
-- - -
-1.instance segmentation
+  
+1.instance segmentation  
 2.text detection
