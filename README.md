@@ -1,7 +1,8 @@
 # RabbitDetect
 Bulit on 2022/02  by Fred Liu
 
-基於MATLAB 物件偵測於rabbit dataset (MATLAB Object Detection with rabbit dataset)
+基於MATLAB 物件偵測於rabbit dataset   
+(MATLAB Object Detection with rabbit dataset)
 ---------------------------------------
 - - -
 
@@ -26,7 +27,7 @@ It can use "Change_gTruthPath.m" to change path.)
 - - -
 正在更新內容(updating content)
 - - -
-基於MATLAB 語意分割於rabbit dataset 
+基於MATLAB 語意分割於rabbit dataset  
 (MATLAB semantic segmentation with rabbit dataset)
 ---------------------------------------
 1.資料請下載(data download):Rabbit_myself_416 or Rabbit_myself_608 
