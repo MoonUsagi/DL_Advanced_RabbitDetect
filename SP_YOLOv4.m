@@ -50,11 +50,11 @@ model = 1;
 switch model
     case 1 
         name = 'tiny-yolov4-coco';
-        networkInputSize = [416 416];
+        networkInputSize = [416 416 3];
         numAnchors = 6;
     case 2 
         name = 'csp-darknet53-coco';
-        networkInputSize = [608 608];
+        networkInputSize = [608 608 3];
         numAnchors = 9;
 end
 %analyzeNetwork(net)
@@ -82,7 +82,7 @@ elseif numAnchors == 6
 end
 
 %% Combined network architecture(組合網路架構) 
-detector = yolov4ObjectDetector(name,classNames,anchorBoxes,networkInputSize);
+detector = yolov4ObjectDetector(name,classNames,anchorBoxes,InputSize=networkInputSize);
 
 
 %% Train Options
@@ -101,8 +101,8 @@ options = trainingOptions("adam",...
     ResetInputNormalization=false,...
     Shuffle="every-epoch",...
     VerboseFrequency=20,...
-    CheckpointPath=tempdir,...
-    ValidationData=validationData);
+    CheckpointPath=tempdir);
+%   ValidationData=validationData
 
 %% Train
 % 訓練
