@@ -112,7 +112,7 @@ options = trainingOptions("adam",...
 % 測試單張影像
 data = read(testData);
 I = data{1,1};
-I = imresize(I,inputSize(1:2));
+I = imresize(I,networkInputSize(1:2));
 [bboxes, scores, labels] = detect(detector,I,'Threshold', 0.1);
 
 I = insertObjectAnnotation(I,'rectangle',bboxes,scores);
