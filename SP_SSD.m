@@ -1,5 +1,6 @@
 %% SP_SSD
 % Fred liu 2022.2.16
+% 2022.5.16 updata Augmentation function using MATLAB 2022a version
 % SSD Demno for RabbitData
 
 %% DataSet Split
@@ -49,7 +50,8 @@ lgraph = ssdLayers(inputSize, numClasses, 'resnet50');
 
 %% Preprocess Training Data
 % 流程前處理 資料Size校正
-preprocessedTrainingData = transform(augmentedTrainingData,@(data)preprocessData(data,inputSize));data = read(trainingData);
+preprocessedTrainingData = transform(augmentedTrainingData,@(data)SSDpreprocessData(data,inputSize));
+
 data = read(preprocessedTrainingData);
 
 I = data{1};
@@ -62,33 +64,33 @@ imshow(annotatedImage)
 %% Train Options
 % 資料參數
 options = trainingOptions('sgdm', ...
-        'MiniBatchSize', 32, ....
+        'MiniBatchSize', 16, ....
         'InitialLearnRate',1e-1, ...
         'LearnRateSchedule', 'piecewise', ...
         'LearnRateDropPeriod', 30, ...
         'LearnRateDropFactor', 0.8, ...
-        'MaxEpochs', 300, ...
+        'MaxEpochs', 20, ...
         'VerboseFrequency', 50, ...        
         'CheckpointPath', tempdir, ...
         'Shuffle','every-epoch');
 
 %% Train
-[detector, info] = trainSSDObjectDetector(preprocessedTrainingData,lgraph,options);
+SSDdetector = trainSSDObjectDetector(preprocessedTrainingData,lgraph,options);
 
 %% Test Single Image
 
 data = read(testData);
 I = data{1,1};
 I = imresize(I,inputSize(1:2));
-[bboxes,scores] = detect(detector,I, 'Threshold', 0.5);
+[bboxes,scores] = detect(SSDdetector,I, 'Threshold', 0.5);
 
 I = insertObjectAnnotation(I,'rectangle',bboxes,scores);
 figure
 imshow(I)
 
 %% Test Dataset
-preprocessedTestData = transform(testData,@(data)preprocessData(data,inputSize));
-detectionResults = detect(detector, preprocessedTestData, 'Threshold', 0.4);
+preprocessedTestData = transform(testData,@(data)SSDpreprocessData(data,inputSize));
+detectionResults = detect(SSDdetector, preprocessedTestData, 'Threshold', 0.4);
 [ap,recall,precision] = evaluateDetectionPrecision(detectionResults, preprocessedTestData);
 
 figure
@@ -101,36 +103,56 @@ title(sprintf('Average Precision = %.2f',ap))
 %% Supporting Functions
 % 輔助函式
 
-function data = augmentData(data)
-% Randomly flip images and bounding boxes horizontally.
-tform = randomAffine2d('XReflection',true);
-sz = size(data{1});
-rout = affineOutputView(sz,tform);
-data{1} = imwarp(data{1},tform,'OutputView',rout);
+function B = augmentData(A)
+% Apply random horizontal flipping, and random X/Y scaling. Boxes that get
+% scaled outside the bounds are clipped if the overlap is above 0.25. Also,
+% jitter image color.
+
+B = cell(size(A));
+
+I = A{1};
+sz = size(I);
+if numel(sz)==3 && sz(3) == 3
+    I = jitterColorHSV(I,...
+        'Contrast',0.2,...
+        'Hue',0,...
+        'Saturation',0.1,...
+        'Brightness',0.2);
+end
+
+% Randomly flip and scale image.
+tform = randomAffine2d('XReflection',true,'Scale',[1 1.1]);
+rout = affineOutputView(sz,tform,'BoundsStyle','CenterOutput');
+B{1} = imwarp(I,tform,'OutputView',rout);
 
 % Sanitize box data, if needed.
-data{2} = helperSanitizeBoxes(data{2}, sz);
+A{2} = helperSanitizeBoxes(A{2}, sz);
 
-% Warp boxes.
-data{2} = bboxwarp(data{2},tform,rout);
+% Apply same transform to boxes.
+[B{2},indices] = bboxwarp(A{2},tform,rout,'OverlapThreshold',0.25);
+B{3} = A{3}(indices);
+
+% Return original data only when all boxes are removed by warping.
+if isempty(indices)
+    B = A;
+end
 end
 
 
-function data = preprocessData(data,targetSize)
-% Resize image and bounding boxes to targetSize.
+function data = SSDpreprocessData(data,targetSize)
+% Resize image and bounding boxes to the targetSize.
 sz = size(data{1},[1 2]);
 scale = targetSize(1:2)./sz;
 data{1} = imresize(data{1},targetSize(1:2));
 
 % Sanitize box data, if needed.
-data{2} = helperSanitizeBoxes(data{2}, sz);
+data{2} = helperSanitizeBoxes(data{2},sz);
 
-% Resize boxes.
+% Resize boxes to new image size.
 data{2} = bboxresize(data{2},scale);
 end
 
-
-function boxes = helperSanitizeBoxes(boxes, imageSize)
+function boxes = helperSanitizeBoxes(boxes, ~)
 persistent hasInvalidBoxes
 valid = all(boxes > 0, 2);
 if any(valid)
@@ -140,26 +162,6 @@ if any(valid)
         warning('Removing ground truth bouding box data with values <= 0.')
     end
     boxes = boxes(valid,:);
-    boxes = roundFractionalBoxes(boxes, imageSize);
+end
 end
 
-end
-
-function boxes = roundFractionalBoxes(boxes, imageSize)
-% If fractional data is present, issue one-time warning and round data and
-% clip to image size.
-persistent hasIssuedWarning
-
-allPixelCoordinates = isequal(floor(boxes), boxes);
-if ~allPixelCoordinates
-    
-    if isempty(hasIssuedWarning)
-        hasIssuedWarning = true;
-        warning('Rounding ground truth bounding box data to integer values.')
-    end
-    
-    boxes = round(boxes);
-    boxes(:,1:2) = max(boxes(:,1:2), 1); 
-    boxes(:,3:4) = min(boxes(:,3:4), imageSize([2 1]));
-end
-end

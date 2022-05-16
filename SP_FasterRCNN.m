@@ -1,5 +1,6 @@
 %% SP_FasterRCNN
 % Fred liu 2022.2.15
+% 2022.5.16 updata Augmentation function using MATLAB 2022a version
 % FasterRCNN Demno for RabbitData
 
 %% DataSet Split
@@ -54,7 +55,7 @@ lgraph = fasterRCNNLayers(inputSize ,numClasses,anchorBoxes, ...
 
 %% Preprocess Training Data
 % 流程前處理 資料Size校正
-trainingData = transform(augmentedTrainingData,@(data)preprocessData(data,inputSize));
+trainingData = transform(augmentedTrainingData,@(data)FasterRCNNpreprocessData(data,inputSize));
 data = read(trainingData);
 
 I = data{1};
@@ -68,12 +69,12 @@ imshow(annotatedImage)
 % 資料參數
 options = trainingOptions('sgdm',...
     'MaxEpochs',50,...
-    'MiniBatchSize',32,...
+    'MiniBatchSize',16,...
     'InitialLearnRate',0.001,...
     'CheckpointPath',tempdir,...
     'ValidationData',testData);
 %% Training
-[detector, info] = trainFasterRCNNObjectDetector(trainingData,lgraph,options, ...
+[FasterRCNNdetector, info] = trainFasterRCNNObjectDetector(trainingData,lgraph,options, ...
         'NegativeOverlapRange',[0 0.3], ...
         'PositiveOverlapRange',[0.6 1]);
 
@@ -82,7 +83,7 @@ options = trainingOptions('sgdm',...
 data = read(testData);
 I = data{1,1};
 I = imresize(I,inputSize(1:2));
-[bboxes,scores] = detect(detector,I,'Threshold',0.3);
+[bboxes,scores] = detect(FasterRCNNdetector,I,'Threshold',0.3);
 
 I = insertObjectAnnotation(I,'rectangle',bboxes,scores);
 figure
@@ -90,8 +91,8 @@ imshow(I)
 
 %% Test Dataset
 % 測試完整資料集
-preprocessedTestData = transform(testData,@(data)preprocessData(data,inputSize));
-detectionResults = detect(detector, preprocessedTestData, 'Threshold', 0.4);
+preprocessedTestData = transform(testData,@(data)FasterRCNNpreprocessData(data,inputSize));
+detectionResults = detect(FasterRCNNdetector, preprocessedTestData, 'Threshold', 0.4);
 [ap,recall,precision] = evaluateDetectionPrecision(detectionResults, preprocessedTestData);
 
 figure
@@ -103,22 +104,43 @@ title(sprintf('Average Precision = %.2f',ap))
 %% Supporting Functions
 % 輔助函式
 
-function data = augmentData(data)
-% Randomly flip images and bounding boxes horizontally.
-tform = randomAffine2d('XReflection',true);
-sz = size(data{1});
-rout = affineOutputView(sz,tform);
-data{1} = imwarp(data{1},tform,'OutputView',rout);
+function B = augmentData(A)
+% Apply random horizontal flipping, and random X/Y scaling. Boxes that get
+% scaled outside the bounds are clipped if the overlap is above 0.25. Also,
+% jitter image color.
+
+B = cell(size(A));
+
+I = A{1};
+sz = size(I);
+if numel(sz)==3 && sz(3) == 3
+    I = jitterColorHSV(I,...
+        'Contrast',0.2,...
+        'Hue',0,...
+        'Saturation',0.1,...
+        'Brightness',0.2);
+end
+
+% Randomly flip and scale image.
+tform = randomAffine2d('XReflection',true,'Scale',[1 1.1]);
+rout = affineOutputView(sz,tform,'BoundsStyle','CenterOutput');
+B{1} = imwarp(I,tform,'OutputView',rout);
 
 % Sanitize box data, if needed.
-data{2} = helperSanitizeBoxes(data{2}, sz);
+A{2} = helperSanitizeBoxes(A{2}, sz);
 
-% Warp boxes.
-data{2} = bboxwarp(data{2},tform,rout);
+% Apply same transform to boxes.
+[B{2},indices] = bboxwarp(A{2},tform,rout,'OverlapThreshold',0.25);
+B{3} = A{3}(indices);
+
+% Return original data only when all boxes are removed by warping.
+if isempty(indices)
+    B = A;
+end
 end
 
 
-function data = preprocessData(data,targetSize)
+function data = FasterRCNNpreprocessData(data,targetSize)
 % Resize image and bounding boxes to targetSize.
 sz = size(data{1},[1 2]);
 scale = targetSize(1:2)./sz;
