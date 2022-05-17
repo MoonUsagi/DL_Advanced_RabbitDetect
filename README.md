@@ -1,13 +1,15 @@
-# RabbitDetect
-Bulit on 2022/02  by Fred Liu  
-[Youtube Link](https://www.youtube.com/channel/UCnUuSyqkkXaFy57qL7aURAA)
-
+# RabbitDetect 
+Bulit on 2022/02  by Fred Liu<br>
+[Youtube Link](https://www.youtube.com/channel/UCnUuSyqkkXaFy57qL7aURAA)<br>
+<br>
+需要工具箱: MATLAB,Deeplearning , Image Processing, Computer Vision, Parallel Computing<br>
+需要支援包: YOLOv3,YOLOv4 Package & pretrain modle Package
+<br>
+首先請閱讀setup_readme (First to read setup_readme )<br>
+<br>
 ![image](https://github.com/MoonUsagi/RabbitDetect/blob/main/rabbitLog_label.jpg)
 ---------------------------------------
-首先請閱讀setup_readme (First to read setup_readme ) 
 
-需要工具箱: MATLAB,Deeplearning , Image Processing, Computer Vision, 
-需要支援包:
 
 
 
