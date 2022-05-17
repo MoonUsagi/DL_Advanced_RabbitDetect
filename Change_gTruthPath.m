@@ -3,8 +3,9 @@
 % Change GTruth Data Path for RabbitData
 
 %% 
-function Change_gTruthPath(NewPath)
-FileData ='Rabbit_myself_608.mat';
+function T_gTruth = Change_gTruthPath(NewPath)
+
+FileData ='label\Rabbit_myself_608.mat';
 load(FileData)
 
 imgfile = T_gTruth.imageFilename;
