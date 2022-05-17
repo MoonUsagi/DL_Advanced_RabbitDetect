@@ -3,6 +3,13 @@ Bulit on 2022/02  by Fred Liu
 [Youtube Link](https://www.youtube.com/channel/UCnUuSyqkkXaFy57qL7aURAA)
 
 ![image](https://github.com/MoonUsagi/RabbitDetect/blob/main/rabbitLog_label.jpg)
+---------------------------------------
+首先請閱讀setup_readme (First to read setup_readme ) 
+
+需要工具箱: MATLAB,Deeplearning , Image Processing, Computer Vision, 
+需要支援包:
+
+
 
 
 
@@ -11,11 +18,9 @@ Bulit on 2022/02  by Fred Liu
 ---------------------------------------
 - - -
 
-首先請閱讀setup_readme (First to read setup_readme ) 
-
-1.資料請下載(data download):Rabbit_myself_416 or Rabbit_myself_608  
-2.模型(model):Modeldownload  
-3.演算法(algorithm):FasterRCNN,SSD,YLOLv2.YOLOv3  
+1.資料請下載(data download):Rabbit_myself_416.zip or Rabbit_myself_608.zip
+2.被訓練過模型(model):model\Modeldownload  
+3.演算法(algorithm):FasterRCNN,SSD,YLOLv2,YOLOv3,YOLOv4  
 4.標記檔案(label data):Rabbit_myself_608.mat,Change_gTruthPath
 6.src_input: 各種labele的匯入api (any label input api)  
   
