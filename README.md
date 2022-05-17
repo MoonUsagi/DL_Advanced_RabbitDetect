@@ -1,13 +1,13 @@
 # RabbitDetect 
-Bulit on 2022/02  by Fred Liu  
+Bulit on 2022/02  by Fred Liu
 [Youtube Link](https://www.youtube.com/channel/UCnUuSyqkkXaFy57qL7aURAA)  
   
-需要工具箱: MATLAB,Deeplearning , Image Processing, Computer Vision, Parallel Computing  
+版本:MATALB: 2022a  
+需要工具箱: Deeplearning , Image Processing, Computer Vision, Parallel Computing  
 需要支援包: YOLOv3,YOLOv4 Package & pretrain modle Package  
   
 首先請閱讀setup_readme.m (First to read setup_readme )  
   
-
 ![image](https://github.com/MoonUsagi/RabbitDetect/blob/main/rabbitLog_label.jpg)
 ---------------------------------------
 
@@ -41,9 +41,6 @@ It can use "Change_gTruthPath.m" to change path.)
 (Model:you can train through the algorithm by yourself, and also use Pre-trained for testing)
   
   
-   
-- - -
-正在更新內容(updating content)
 - - -
 基於MATLAB 語意分割於rabbit dataset  
 (MATLAB semantic segmentation with rabbit dataset)
@@ -57,6 +54,7 @@ It can use "Change_gTruthPath.m" to change path.)
   
 - - -
 未來更新(future update)
-  
+---------------------------------------
+- - -
 1.instance segmentation  
 2.text detection
