@@ -1,5 +1,6 @@
 # RabbitDetect 
-Bulit on 2022/02  by Fred Liu
+Bulit on 2022/02 by Fred Liu
+Major update 2022/5 
 [Youtube Link](https://www.youtube.com/channel/UCnUuSyqkkXaFy57qL7aURAA)  
   
 版本:MATALB: 2022a  
@@ -46,8 +47,8 @@ It can use "Change_gTruthPath.m" to change path.)
 (MATLAB semantic segmentation with rabbit dataset)
 ---------------------------------------
 1.資料請下載(data download):Rabbit_myself_416 or Rabbit_myself_608  
-2.模型(model):future  
-3.演算法(algorithm):SP_DeepLabv3  
+2.模型(model): future  
+3.演算法(algorithm): SP_DeepLabv3  
   
   
   
