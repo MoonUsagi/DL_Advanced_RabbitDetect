@@ -11,6 +11,7 @@ addpath('models');
 
 
 %% Load gTruth and change path
+% 這裡更改你的資料路徑 Change your data path
 NewPath = 'D:\Fred\MATLAB_Library(Github)\RabbitDetect\Rabbit_myself_608';
 T_gTruth = Change_gTruthPath(NewPath);
 
