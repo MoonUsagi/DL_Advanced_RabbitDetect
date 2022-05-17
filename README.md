@@ -46,6 +46,7 @@ It can use "Change_gTruthPath.m" to change path.)
 基於MATLAB 語意分割於rabbit dataset  
 (MATLAB semantic segmentation with rabbit dataset)
 ---------------------------------------
+- - -
 1.資料請下載(data download):Rabbit_myself_416 or Rabbit_myself_608  
 2.模型(model): future  
 3.演算法(algorithm): SP_DeepLabv3  
