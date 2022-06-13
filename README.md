@@ -37,7 +37,7 @@ Major update 2022/5
 2.標記影像：可使用image labeler標記　or 載入Rabbit_myselft_608標記資料(可使用Change_gTruthPath.m)    
 (Label Image:use image labeler to label or download "Rabbit_myselft_608" label dataset.  
 It can use "Change_gTruthPath.m" to change path.)
-  
+
 3.模型：可以自行透過演算法訓練(src_main)，也使用Pre-trained進行測試(model)  
 (Model:you can train through the algorithm by yourself, and also use Pre-trained for testing)
   

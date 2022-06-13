@@ -45,7 +45,7 @@ montage(augmentedData,'BorderSize',10)
 %(定義YOLOv3物件偵測演算法)
 
 % Load Pre-Train Model
-model = 1;
+model = 2;
 switch model
     case 1 
         name = 'tiny-yolov3-coco';
