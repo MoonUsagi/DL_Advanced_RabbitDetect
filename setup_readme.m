@@ -7,16 +7,24 @@ addpath('src_main');
 addpath('src_input');
 addpath('src_fun');
 addpath('label');
-addpath('models');
+addpath('model');
 addpath('Img');
 
-
 %% Load gTruth and change path
-% 這裡更改你的資料路徑 Change your data path
-NewPath = 'D:\Fred\MATLAB_Library(Github)\RabbitDetect\Rabbit_myself_608\';
-T_gTruth = Change_gTruthPath(NewPath);
+num = 2;
+switch(num)
+    % Object Detection
+    % 這裡更改你的資料路徑 Change your data path
+    case 1
+        NewPath = 'D:\Fred\MATLAB_Library(Github)\RabbitDetect\Rabbit_myself_608\';
+        T_gTruth = Change_gTruthPath(NewPath);
 
-
+    % Semantic segmentation
+    case 2
+        SourceData = 'D:\Fred\MATLAB_Library(Github)\RabbitDetect\Rabbit_myself_608';
+        LabelData = 'D:\Fred\MATLAB_Library(Github)\RabbitDetect\label\PixelLabelData';
+        [imds,pxds]  = Change_gTruthPath_Seg(SourceData,LabelData);
+end
 %% readme
 
 % DataSet : Rabbit_myself_608.zip , Rabbit_myself_416.zip

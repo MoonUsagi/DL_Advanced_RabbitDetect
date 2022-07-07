@@ -12,8 +12,8 @@ imshow(I)
 
 %% Load Labeled Image
 classes = ["rabbit","zero"];
-%labelIDs = [1 2];
-labelIDs = camvidPixelLabelIDs();
+labelIDs = [1 2];
+%labelIDs = camvidPixelLabelIDs();
 pxds = pixelLabelDatastore(gTruth.LabelData.PixelLabelData,classes,labelIDs);
 
 %% 影像與標記資料預檢視

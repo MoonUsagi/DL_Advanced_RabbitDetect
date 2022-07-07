@@ -3,7 +3,7 @@
 % Change GTruth Data Path for RabbitData
 
 %% 
-function T_gTruth = Change_gTruthPath(NewPath)
+function T_gTruth = Change_gTruthPath_Seg(NewPath)
 
 FileData ='label\Rabbit_myself_608.mat';
 load(FileData)
