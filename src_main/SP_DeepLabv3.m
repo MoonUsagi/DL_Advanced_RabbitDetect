@@ -1,29 +1,30 @@
 %% SP_DeepLabv3
-% Fred liu 2022.4.20
+% Fred liu 2022.7.11
 % DeepLabv3 Demno for RabbitData
 
 %%  Build Datasotre
-imds = imageDatastore(gTruth.DataSource.Source);
-
+% you can get labeldata from gtruth or using define label(setup_readme)
+%imds = imageDatastore(gTruth.DataSource.Source);
+num = 3;
 % Display one of the image
-I = readimage(imds,2);
-I = histeq(I);
-imshow(I)
+img = readimage(imds,num);
+img = histeq(img);
+figure,imshow(img)
 
 %% Load Labeled Image
-classes = ["rabbit","zero"];
-labelIDs = [1 2];
-%labelIDs = camvidPixelLabelIDs();
-pxds = pixelLabelDatastore(gTruth.LabelData.PixelLabelData,classes,labelIDs);
+% you can get labeldata from gtruth or using define label(setup_readme)
+%classes = ["rabbit","zero"];
+%labelIDs = [1 2];
+%pxds = pixelLabelDatastore(gTruth.LabelData.PixelLabelData,classes,labelIDs);
 
 %% 影像與標記資料預檢視
 %C = readimage(pxds,5);
-C = imread(pxds.Files{2});
+pixelImg = imread(pxds.Files{num});
 
 cmap = camvidColorMap;
-B = labeloverlay(I,C,'ColorMap',cmap);
-imshow(B)
-pixelLabelColorbar(cmap,classes);
+layImg = labeloverlay(img,pixelImg,'ColorMap',cmap);
+figure,imshow(layImg)
+pixelLabelColorbar(cmap,pxds.ClassNames);
 
 %% 分割資料
 [imdsTrain, imdsVal, imdsTest, pxdsTrain, pxdsVal, pxdsTest] = partitionCamVidData(imds,pxds);
