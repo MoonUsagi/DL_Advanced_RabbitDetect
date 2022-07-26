@@ -8,11 +8,11 @@ numFiles = numel(imds.Files);
 shuffledIndices = randperm(numFiles);
 
 % Use 60% of the images for training.
-numTrain = round(0.60 * numFiles);
+numTrain = round(0.80 * numFiles);
 trainingIdx = shuffledIndices(1:numTrain);
 
 % Use 20% of the images for validation
-numVal = round(0.20 * numFiles);
+numVal = round(0.10 * numFiles);
 valIdx = shuffledIndices(numTrain+1:numTrain+numVal);
 
 % Use the rest for testing.
