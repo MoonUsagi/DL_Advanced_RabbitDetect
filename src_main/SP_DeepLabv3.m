@@ -2,10 +2,12 @@
 % Fred liu 2022.7.11
 % DeepLabv3 Demno for RabbitData
 
+% 2022.10.07 bug update
+% class numer and class name error
 %%  Build Datasotre
 % you can get labeldata from gtruth or using define label(setup_readme)
 %imds = imageDatastore(gTruth.DataSource.Source);
-num = 5;
+num = 3;
 % Display one of the image
 img = readimage(imds,num);
 img = histeq(img);
@@ -25,7 +27,7 @@ pixelImg = imread(pxds.Files{num});
 cmap = camvidColorMap;
 layImg = labeloverlay(img,pixelImg,'ColorMap',cmap);
 figure,imshow(layImg)
-pixelLabelColorbar(cmap,pxds.ClassNames);
+pixelLabelColorbar(cmap,[pxds.ClassNames;'other']);
 
 
 %% 分割資料
