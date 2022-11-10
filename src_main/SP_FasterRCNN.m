@@ -5,7 +5,7 @@
 
 %% DataSet Split
 % 切割資料
-rng(0)
+%rng(0)
 shuffledIndices = randperm(height(T_gTruth));
 idx = floor(0.8 * height(T_gTruth));
 

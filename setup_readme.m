@@ -12,7 +12,7 @@ addpath('Img');
 
 %% Load gTruth and change path
 % 選擇要載入的標記檔案，可以使用物件偵測與語意分割
-num = 2;
+num = 1;
 switch(num)
     % Object Detection（物件偵測）
     % 這裡更改你的資料路徑 Change your data path
