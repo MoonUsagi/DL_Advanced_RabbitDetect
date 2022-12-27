@@ -44,7 +44,7 @@ montage(augmentedData,'BorderSize',10)
 
 %%  Build Network
 % 建置網路架構 SSD + mobilenetv2
-inputSize = [300 300 3];
+inputSize = [224 224 3];
 numClasses = 1;
 lgraph = ssdLayers(inputSize, numClasses, 'resnet50');
 

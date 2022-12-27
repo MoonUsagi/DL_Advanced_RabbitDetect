@@ -87,7 +87,7 @@ dsTrain = combine(imdsTrain, pxdsTrain);
 [DeepLabv3net, info] = trainNetwork(dsTrain,lgraph,options);
 
 %% Test Single Image
-I = readimage(imdsTest,5);
+I = readimage(imdsTest,11);
 C = semanticseg(I, DeepLabv3net);
 
 B = labeloverlay(I,C,'Colormap',cmap,'Transparency',0.4);
