@@ -1,6 +1,7 @@
 %% SP_SSD
 % Fred liu 2022.2.16
 % 2022.5.16 updata Augmentation function using MATLAB 2022a version
+% 2023.03.08 update ssdObjectDetector
 % SSD Demno for RabbitData
 
 %% DataSet Split
@@ -43,10 +44,16 @@ figure
 montage(augmentedData,'BorderSize',10)
 
 %%  Build Network
-% 建置網路架構 SSD + mobilenetv2
-inputSize = [224 224 3];
-numClasses = 1;
-lgraph = ssdLayers(inputSize, numClasses, 'resnet50');
+
+basenet = resnet50;
+classNames = "rabbit";
+anchorBoxes = {[30 60;60 30;50 50;100 100], ...
+               [40 70;70 40;60 60;120 120], ...
+               [50 80;80 60;70 70;140 140]};
+featureExtractionLayers = ["activation_11_relu" "activation_22_relu" "activation_40_relu"];
+basenet = layerGraph(basenet);
+detector = ssdObjectDetector(basenet,classNames,anchorBoxes,DetectionNetworkSource=featureExtractionLayers);
+
 
 %% Preprocess Training Data
 % 流程前處理 資料Size校正
@@ -69,13 +76,13 @@ options = trainingOptions('sgdm', ...
         'LearnRateSchedule', 'piecewise', ...
         'LearnRateDropPeriod', 30, ...
         'LearnRateDropFactor', 0.8, ...
-        'MaxEpochs', 20, ...
+        'MaxEpochs', 50, ...
         'VerboseFrequency', 50, ...        
         'CheckpointPath', tempdir, ...
         'Shuffle','every-epoch');
 
 %% Train
-SSDdetector = trainSSDObjectDetector(preprocessedTrainingData,lgraph,options);
+SSDdetector = trainSSDObjectDetector(preprocessedTrainingData,detector,options);
 
 %% Test Single Image
 

@@ -45,7 +45,7 @@ montage(augmentedData,'BorderSize',10)
 %(定義YOLOv3物件偵測演算法)
 
 % Load Pre-Train Model
-model = 2;
+model = 1;
 switch model
     case 1 
         name = 'tiny-yolov3-coco';
@@ -61,7 +61,7 @@ classNames = {'rabbit',};
 
 %% Anchors Box Design
 % User Defined
-%aboxes = {[90,116;198,156;326,373];[61,30;45,62;119,59];[13,10;30,16;23,33]};
+% aboxes = {[90,116;198,156;326,373];[61,30;45,62;119,59];[13,10;30,16;23,33]};
 
 trainingDataForEstimation = transform(trainingData, @(data)preprocessData(data, networkInputSize));
 [anchors, meanIoU] = estimateAnchorBoxes(trainingDataForEstimation, numAnchors)
@@ -104,7 +104,7 @@ imshow(annotatedImage)
 %% Train Options
 % 資料參數
 
-numEpochs = 200;
+numEpochs = 50;
 miniBatchSize = 16;
 learningRate = 0.01;
 warmupPeriod = 1000;
