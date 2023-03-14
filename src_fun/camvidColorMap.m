@@ -4,8 +4,6 @@ function cmap = camvidColorMap()
 cmap = [
      128 220 128   %
      0 128 220     % 
-    220 128 128   % 
-
     ];
 
 % Normalize between [0 1].

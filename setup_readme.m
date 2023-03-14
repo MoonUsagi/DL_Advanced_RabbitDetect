@@ -41,8 +41,9 @@ switch(num)
     %(LabelData) 這裡更改你的資料路徑Change your data path
     case 2 % Semantic segmentation（語意分割）
         SourceData = 'D:\Fred\MATLAB_Library(Github)\RabbitDetect\Rabbit_myself_608\';
-        LabelData = 'D:\Fred\MATLAB_Library(Github)\RabbitDetect\label\PixelLabelData\';
-        [imds,pxds]  = Change_gTruthPath_Seg(SourceData,LabelData);
+        LabelData = 'D:\Fred\MATLAB_Library(Github)\RabbitDetect\label\PixelLabelData_2\';
+        FileData ='label\gTruth_Pixel_2.mat';
+        [imds,pxds]  = Change_gTruthPath_Seg(SourceData,LabelData,FileData);
 end
 %% readme
 
@@ -65,7 +66,6 @@ end
 % ====================================================
 % Semantic Segmentation algorithm
 % DeepLabv3+: SP_DeepLabv3.m
-% Unet:       SP_Unet.m(not yet)
 % ====================================================
 
 % ====================================================

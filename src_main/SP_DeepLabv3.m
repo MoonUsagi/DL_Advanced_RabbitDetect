@@ -7,7 +7,7 @@
 %%  Build Datasotre
 % you can get labeldata from gtruth or using define label(setup_readme)
 %imds = imageDatastore(gTruth.DataSource.Source);
-num = 3;
+num = 2;
 % Display one of the image
 img = readimage(imds,num);
 img = histeq(img);
@@ -44,7 +44,7 @@ numClasses = numel(pxds.ClassNames);
 
 
 % Create DeepLab v3+.
-lgraph = deeplabv3plusLayers(imageSize, numClasses, "resnet18");
+lgraph = deeplabv3plusLayers(imageSize, numClasses, "resnet50");
 % Semantic Segmentation With Deep Learning
 
 %% 平衡分類權重 Balance Classes Using Class Weighting
@@ -67,8 +67,8 @@ options = trainingOptions('sgdm', ...
     'Momentum',0.9, ...
     'InitialLearnRate',1e-3, ...
     'L2Regularization',0.005, ...
-    'MaxEpochs',30, ...  
-    'MiniBatchSize',8, ...
+    'MaxEpochs',50, ...  
+    'MiniBatchSize',16, ...
     'Shuffle','every-epoch', ...
     'CheckpointPath', tempdir, ...
     'VerboseFrequency',2,...
@@ -87,7 +87,7 @@ dsTrain = combine(imdsTrain, pxdsTrain);
 [DeepLabv3net, info] = trainNetwork(dsTrain,lgraph,options);
 
 %% Test Single Image
-I = readimage(imdsTest,11);
+I = readimage(imdsVal,10);
 C = semanticseg(I, DeepLabv3net);
 
 B = labeloverlay(I,C,'Colormap',cmap,'Transparency',0.4);

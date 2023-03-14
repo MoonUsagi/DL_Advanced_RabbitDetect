@@ -1,9 +1,8 @@
 function labelIDs = camvidPixelLabelIDs()
 
 labelIDs = {
-            0,...%二寶
-            1,...%兔寶
-            2,...%其他
+            0,...%兔子
+            1,...%背景
             };
 
 % labelIDs = { ...
