@@ -12,7 +12,7 @@ numTrain = round(0.90 * numFiles);
 trainingIdx = shuffledIndices(1:numTrain);
 
 % Use 5% of the images for validation
-numVal = round(0.5 * numFiles);
+numVal = round(0.05 * numFiles);
 valIdx = shuffledIndices(numTrain+1:numTrain+numVal);
 
 % Use the rest for testing.
