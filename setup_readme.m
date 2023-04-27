@@ -29,7 +29,7 @@ addpath('Img');       %範例影像Example Image
 % 選擇要載入的標記檔案，可以使用物件偵測與語意分割
 % (You can select the tag file to load and use object detection and semantic segmentation)
 
-num = 2;
+num = 1;
 switch(num)
     
     %(NewPath) 這裡更改你的資料路徑Change your data path
