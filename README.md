@@ -53,10 +53,11 @@ It can use "Change_gTruthPath.m" to change path.)
 ---------------------------------------
 - - -
 1.資料請下載(data download):Rabbit_myself_416 or Rabbit_myself_608  
-2.模型(model):
+2.已訓練模型(Pretain_model):model\Modeldownload  
 3.演算法(algorithm): SP_DeepLabv3  
-  
-  
+4.標記檔案(label data):gTruth_Pixel_2.mat 
+5.src_input:JsonSegInput.m,readFcn.m,readFcn2.m
+
 - - -
 基於MATLAB 實例分割於coco dataset
 ---------------------------------------
@@ -64,8 +65,8 @@ It can use "Change_gTruthPath.m" to change path.)
 1.資料請下載(data download):https://github.com/cocodataset/cocoapi
 Download:"2014 Train images" and "2014 Train/Val annotations" links
 
-2.模型(model):
-
-
-
+2.已訓練模型(Pretain_model): NaN
+3.演算法(algorithm): SP_MaskRCNN
+4.標記檔案(label data):Using coco dataset
+5.src_input:
 
