@@ -55,8 +55,8 @@ It can use "Change_gTruthPath.m" to change path.)
 1.資料請下載(data download):Rabbit_myself_416 or Rabbit_myself_608  
 2.已訓練模型(Pretain_model):model\Modeldownload  
 3.演算法(algorithm): SP_DeepLabv3  
-4.標記檔案(label data):gTruth_Pixel_2.mat 
-5.src_input:JsonSegInput.m,readFcn.m,readFcn2.m
+4.標記檔案(label data):gTruth_Pixel_2.mat  
+5.src_input:JsonSegInput.m,readFcn.m,readFcn2.m  
 
 - - -
 基於MATLAB 實例分割於coco dataset
