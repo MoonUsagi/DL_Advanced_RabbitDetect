@@ -62,11 +62,11 @@ It can use "Change_gTruthPath.m" to change path.)
 基於MATLAB 實例分割於coco dataset
 ---------------------------------------
 - - -
-1.資料請下載(data download):https://github.com/cocodataset/cocoapi
+1.資料請下載(data download):https://github.com/cocodataset/cocoapi  
 Download:"2014 Train images" and "2014 Train/Val annotations" links 
 
 2.已訓練模型(Pretain_model): NaN  
 3.演算法(algorithm): SP_MaskRCNN  
-4.標記檔案(label data):Using coco dataset  
-5.src_input:  
+4.標記檔案(label data):Using coco dataset/ gTruth_Instance.mat
+5.src_input:Polygon2mask_bbox.m
 
