@@ -16,7 +16,7 @@
 % HowToUseGPU.mlx : GPU使用教學
 % YOLOv4_inference.mlx : 進行YOLOv4推理(使用內建模型)
 % YOLOv4_bulid.mlx : 客製化YOLOv4架構
-
+% MaskRCNN_inference.mlx : 進行Mask R-CNN推理(使用內建模型)
 %% Setup
 addpath('src_main');  %主程式main funcion
 addpath('src_input'); %格式載入input function
@@ -52,6 +52,7 @@ end
 % Model : models/Modeldownload
 % Json Label input : src_input/Jsoninput.m
 % XML Label input : src_input/XMLinput.m
+% Polygon to Msk : src_input/Polygon2mask_bbox.m
 % Algorithm : src_main\~~~
 
 % ====================================================
@@ -70,7 +71,7 @@ end
 
 % ====================================================
 % instance Segmentation algorithm
-% MaskRCNN:  SP_MaskRCNN.m(not yet)
+% MaskRCNN:  SP_MaskRCNN.m
 % ====================================================
 
 
