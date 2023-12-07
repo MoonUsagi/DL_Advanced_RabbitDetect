@@ -9,7 +9,7 @@ Major update 2023.05.17
 [Computer Vision Toolbox Model for YOLO v3 Object Detection](https://www.mathworks.com/matlabcentral/fileexchange/87959-computer-vision-toolbox-model-for-yolo-v3-object-detection?s_tid=srchtitle)  
 [Computer Vision Toolbox Model for YOLO v4 Object Detection](https://www.mathworks.com/matlabcentral/fileexchange/107969-computer-vision-toolbox-model-for-yolo-v4-object-detection?s_tid=srchtitle)  
 YOLOX:  
-[Computer Vision Toolbox Automated Visual Inspection Library](https://www.mathworks.com/matlabcentral/fileexchange/116555-computer-vision-toolbox-automated-visual-inspection-library?s_tid=ta_fx_results)
+[Computer Vision Toolbox Automated Visual Inspection Library](https://www.mathworks.com/matlabcentral/fileexchange/116555-computer-vision-toolbox-automated-visual-inspection-library?s_tid=ta_fx_results)  
 MASK-RCNN,SOLOv2  
 [Computer Vision Toolbox Model for Mask R-CNN Instance Segmentation](https://www.mathworks.com/matlabcentral/fileexchange/98554-computer-vision-toolbox-model-for-mask-r-cnn-instance-segmentation?s_tid=prof_contriblnk)  
 [Computer Vision Toolbox Model for SOLOv2 Instance Segmentation](https://www.mathworks.com/matlabcentral/fileexchange/131144-computer-vision-toolbox-model-for-solov2-instance-segmentation?s_tid=srchtitle)
