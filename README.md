@@ -1,6 +1,7 @@
 # RabbitDetect 
 Bulit on 2022/02 by Fred Liu  
 Major update 2023.05.17  
+New update 2023.12.07(YOLOX,SOLOv2)  
 [Youtube Link](https://www.youtube.com/channel/UCnUuSyqkkXaFy57qL7aURAA)  
   
 版本:MATALB: update to 2023a,minimum vervion 2022a.  
@@ -10,8 +11,9 @@ Major update 2023.05.17
 [Computer Vision Toolbox Model for YOLO v4 Object Detection](https://www.mathworks.com/matlabcentral/fileexchange/107969-computer-vision-toolbox-model-for-yolo-v4-object-detection?s_tid=srchtitle)  
 YOLOX:  
 [Computer Vision Toolbox Automated Visual Inspection Library](https://www.mathworks.com/matlabcentral/fileexchange/116555-computer-vision-toolbox-automated-visual-inspection-library?s_tid=ta_fx_results)  
-MASK-RCNN,SOLOv2  
+MASK-RCNN  
 [Computer Vision Toolbox Model for Mask R-CNN Instance Segmentation](https://www.mathworks.com/matlabcentral/fileexchange/98554-computer-vision-toolbox-model-for-mask-r-cnn-instance-segmentation?s_tid=prof_contriblnk)  
+SOLOv2  
 [Computer Vision Toolbox Model for SOLOv2 Instance Segmentation](https://www.mathworks.com/matlabcentral/fileexchange/131144-computer-vision-toolbox-model-for-solov2-instance-segmentation?s_tid=srchtitle)
 
 ---------------------------------------
