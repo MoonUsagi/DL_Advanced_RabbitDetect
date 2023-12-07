@@ -6,9 +6,13 @@ Major update 2023.05.17
 版本:MATALB: update to 2023a,minimum vervion 2022a.  
 需要工具箱: Deeplearning , Image Processing, Computer Vision, Parallel Computing  
 需要支援包: YOLOv3,YOLOv4 Package & pretrain modle Package  
+[Computer Vision Toolbox Model for YOLO v3 Object Detection](https://www.mathworks.com/matlabcentral/fileexchange/87959-computer-vision-toolbox-model-for-yolo-v3-object-detection?s_tid=srchtitle)  
 [Computer Vision Toolbox Model for YOLO v4 Object Detection](https://www.mathworks.com/matlabcentral/fileexchange/107969-computer-vision-toolbox-model-for-yolo-v4-object-detection?s_tid=srchtitle)  
-[Computer Vision Toolbox Model for YOLO v4 Object Detection](https://www.mathworks.com/matlabcentral/fileexchange/107969-computer-vision-toolbox-model-for-yolo-v4-object-detection?s_tid=srchtitle)  
+YOLOX:  
+[Computer Vision Toolbox Automated Visual Inspection Library](https://www.mathworks.com/matlabcentral/fileexchange/116555-computer-vision-toolbox-automated-visual-inspection-library?s_tid=ta_fx_results)
+MASK-RCNN,SOLOv2  
 [Computer Vision Toolbox Model for Mask R-CNN Instance Segmentation](https://www.mathworks.com/matlabcentral/fileexchange/98554-computer-vision-toolbox-model-for-mask-r-cnn-instance-segmentation?s_tid=prof_contriblnk)  
+[Computer Vision Toolbox Model for SOLOv2 Instance Segmentation](https://www.mathworks.com/matlabcentral/fileexchange/131144-computer-vision-toolbox-model-for-solov2-instance-segmentation?s_tid=srchtitle)
 
 ---------------------------------------
 
@@ -31,7 +35,7 @@ it is recommended to use a larger database.
 
 1.資料請下載(data download):Rabbit_myself_416.zip or Rabbit_myself_608.zip  
 2.已訓練模型(Pretain_model):model\Modeldownload  
-3.演算法(algorithm):src_main\FasterRCNN,SSD,YLOLv2,YOLOv3,YOLOv4  
+3.演算法(algorithm):src_main\FasterRCNN,SSD,YLOLv2,YOLOv3,YOLOv4,YOLOX  
 4.標記檔案(label data):Rabbit_myself_608.mat   
 5.src_input: XMLinput , Jsoninput 
   
@@ -72,7 +76,7 @@ It can use "Change_gTruthPath.m" to change path.)
 Download:"2014 Train images" and "2014 Train/Val annotations" links 
 
 2.已訓練模型(Pretain_model): NaN  
-3.演算法(algorithm): SP_MaskRCNN  
+3.演算法(algorithm): SP_MaskRCNN,SP_SOLOv2  
 4.標記檔案(label data):Using coco dataset/ gTruth_Instance.mat
 5.src_input:Polygon2mask_bbox.m
 
