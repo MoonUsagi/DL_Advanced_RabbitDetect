@@ -2,6 +2,8 @@
 % Fred liu 2022.03.01
 % 2022.05.17 update  
 % 2023.03.08 major update(Instance Segmentation)
+% 2023.12.07 update(YOLOX,SOLOv2,Autolabel by YOLOX)
+
 %% 使用流程 Manual
 % 1.先使用此份檔案做Setup的路徑載入，以及gTruth檔案的載入
 % (Load the path for Setup using this file first, and load the gTruth file.)
