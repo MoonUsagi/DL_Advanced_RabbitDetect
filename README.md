@@ -4,7 +4,7 @@ Major update 2023.05.17
 New update 2023.12.07(YOLOX,SOLOv2)  
 [Youtube Link](https://www.youtube.com/channel/UCnUuSyqkkXaFy57qL7aURAA)  
   
-版本:MATALB: update to 2023a,minimum vervion 2022a.  
+版本:MATALB: update to 2023b,minimum vervion 2022a.  
 需要工具箱: Deeplearning , Image Processing, Computer Vision, Parallel Computing  
 需要支援包: YOLOv3,YOLOv4 Package & pretrain modle Package  
 [Computer Vision Toolbox Model for YOLO v3 Object Detection](https://www.mathworks.com/matlabcentral/fileexchange/87959-computer-vision-toolbox-model-for-yolo-v3-object-detection?s_tid=srchtitle)  
