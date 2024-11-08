@@ -46,6 +46,16 @@ switch(num)
         LabelData = 'D:\Fred\MATLAB_Library(Github)\RabbitDetect\label\PixelLabelData_2\';
         FileData ='label\gTruth_Pixel_2.mat';
         [imds,pxds]  = Change_gTruthPath_Seg(SourceData,LabelData,FileData);
+    
+    case 3 % Instance Segmentation(實例分割)
+        NewPath = 'D:\Fred\MATLAB_Library(Github)\RabbitDetect\Rabbit_myself_608\';
+        T_gTruth = Change_gTruthPath(NewPath);
+
+        SourceData = 'D:\Fred\MATLAB_Library(Github)\RabbitDetect\Rabbit_myself_608\';
+        LabelData = 'D:\Fred\MATLAB_Library(Github)\RabbitDetect\label\PixelLabelData_2\';
+        FileData ='label\gTruth_Pixel_2.mat';
+        [imds,pxds]  = Change_gTruthPath_Seg(SourceData,LabelData,FileData);
+
 end
 %% readme
 
@@ -64,6 +74,7 @@ end
 % YOLOv2:     SP_YOLOv2.m
 % YOLOv3:     SP_YOLOv3.m
 % YOLOv4:     SP_YOLOv4.m
+% YOLOX:      SP_YOLOX.m
 % ====================================================
 
 % ====================================================
@@ -74,6 +85,7 @@ end
 % ====================================================
 % instance Segmentation algorithm
 % MaskRCNN:  SP_MaskRCNN.m
+% SOLOv2:    SP_SOLOv2.m
 % ====================================================
 
 
